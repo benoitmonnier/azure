@@ -1,0 +1,37 @@
+{
+  "properties": {
+    "displayName": "TEST-Lighthouse_Audit_acces_publique_storage_account",
+    "policyType": "Custom",
+    "mode": "All",
+    "metadata": {
+      "category": "Storage",
+      "createdBy": "a18ee105-33f9-4ad4-9d3f-b5b96608783b",
+      "createdOn": "2021-05-06T12:09:49.6771904Z",
+      "updatedBy": "a18ee105-33f9-4ad4-9d3f-b5b96608783b",
+      "updatedOn": "2021-05-06T12:20:12.7758073Z"
+    },
+    "parameters": {},
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+          },
+          {
+            "not": {
+              "field": "Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+              "equals": "false"
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "audit"
+      }
+    }
+  },
+  "id": "/providers/Microsoft.Management/managementGroups/34314e6e-4023-4e4b-a15e-143f63244e2b/providers/Microsoft.Authorization/policyDefinitions/2a9b7ffb-ff56-443e-8e77-08d538c47870",
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "name": "2a9b7ffb-ff56-443e-8e77-08d538c47870"
+}
