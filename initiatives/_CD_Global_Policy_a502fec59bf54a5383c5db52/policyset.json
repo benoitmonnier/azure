@@ -1,0 +1,306 @@
+{
+ "properties": {
+  "displayName": "[CD] Global Policy",
+  "policyType": "Custom",
+  "description": "",
+  "metadata": {
+   "category": "General",
+   "createdBy": "608e2b42-4118-403f-ae54-b3675ac21ad6",
+   "createdOn": "2021-11-29T16:17:30.4828585Z",
+   "updatedBy": "bc3eef1d-2da7-49a6-9774-e6cb8468c16a",
+   "updatedOn": "2022-03-04T09:14:27.5305056Z",
+   "parameterScopes": {
+    "listOfAllowedLocations": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525",
+    "listOfAllowedSKUs": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525"
+   }
+  },
+  "parameters": {},
+  "policyDefinitions": [
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cd3aa116-8754-49c9-a813-ad46512ece54",
+    "parameters": {
+     "tagName": {
+      "value": "Team"
+     }
+    },
+    "groupNames": [
+     "tag convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group_2",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cd3aa116-8754-49c9-a813-ad46512ece54",
+    "parameters": {
+     "tagName": {
+      "value": "Owner"
+     }
+    },
+    "groupNames": [
+     "tag convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group_3",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cd3aa116-8754-49c9-a813-ad46512ece54",
+    "parameters": {
+     "tagName": {
+      "value": "Project"
+     }
+    },
+    "groupNames": [
+     "tag convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group_4",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cd3aa116-8754-49c9-a813-ad46512ece54",
+    "parameters": {
+     "tagName": {
+      "value": "Environment"
+     }
+    },
+    "groupNames": [
+     "tag convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group_5",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cd3aa116-8754-49c9-a813-ad46512ece54",
+    "parameters": {
+     "tagName": {
+      "value": "CostCenter"
+     }
+    },
+    "groupNames": [
+     "tag convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group_6",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cd3aa116-8754-49c9-a813-ad46512ece54",
+    "parameters": {
+     "tagName": {
+      "value": "Expiration"
+     }
+    },
+    "groupNames": [
+     "tag convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group_7",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cd3aa116-8754-49c9-a813-ad46512ece54",
+    "parameters": {
+     "tagName": {
+      "value": "IsLocked"
+     }
+    },
+    "groupNames": [
+     "tag convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Inherit a tag from the subscription on all_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/74c0c54f-221c-4515-9e6a-d4a15b684c50",
+    "parameters": {
+     "tagName": {
+      "value": "Entity"
+     }
+    },
+    "groupNames": [
+     "tag convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Resource Group Name ends with -rg_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/5dfd16ff-3e06-4ea6-bc0e-bdb84207cc77",
+    "parameters": {},
+    "groupNames": [
+     "naming convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Resource name has the same prefix as its resource group_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/8e16c3ee-28a2-490f-a8f0-a619439bc8c3",
+    "parameters": {},
+    "groupNames": [
+     "naming convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Audit and deploy Resource Locks based on Tags_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/d9c14ff3-63dd-4f7a-82e1-3c86b95edc35",
+    "parameters": {
+     "tagName": {
+      "value": "IsLocked"
+     },
+     "tagValue": {
+      "value": "True"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Allowed locations_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+    "parameters": {
+     "listOfAllowedLocations": {
+      "value": [
+       "francecentral",
+       "westeurope"
+      ]
+     }
+    },
+    "groupNames": [
+     "location convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Allowed locations for resource groups_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+    "parameters": {
+     "listOfAllowedLocations": {
+      "value": [
+       "francecentral",
+       "westeurope"
+      ]
+     }
+    },
+    "groupNames": [
+     "location convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Allowed virtual machine size SKUs_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cccc23c7-8427-4f53-ad12-b6a63eb452b3",
+    "parameters": {
+     "listOfAllowedSKUs": {
+      "value": [
+       "standard_a1_v2",
+       "standard_a2_v2",
+       "standard_a4_v2",
+       "standard_a2m_v2",
+       "standard_a4m_v2",
+       "standard_a8_v2",
+       "standard_a8m_v2",
+       "standard_b1ls",
+       "standard_b1ms",
+       "standard_b1s",
+       "standard_b2ms",
+       "standard_b2s",
+       "standard_b4ms",
+       "standard_b8ms",
+       "standard_d1_v2",
+       "standard_d2_v2",
+       "standard_d2_v2_promo",
+       "standard_d3_v2",
+       "standard_d3_v2_promo",
+       "standard_d4_v2",
+       "standard_d4_v2_promo",
+       "standard_d4_v3",
+       "standard_d4_v4",
+       "standard_d4_v5",
+       "standard_d5_v2",
+       "standard_d5_v2_promo",
+       "standard_d8_v3",
+       "standard_d8_v4",
+       "standard_d8_v5",
+       "standard_d8a_v4",
+       "standard_d8ads_v5",
+       "standard_d8as_v4",
+       "standard_d8as_v5",
+       "standard_d8d_v4",
+       "standard_d8d_v5",
+       "standard_d8ds_v4",
+       "standard_d8ds_v5",
+       "standard_d8s_v3",
+       "standard_d8s_v4",
+       "standard_d8s_v5",
+       "standard_dc1ds_v3",
+       "standard_dc1s_v2",
+       "standard_dc1s_v3",
+       "standard_dc2ads_v5",
+       "standard_dc2as_v5",
+       "standard_dc2ds_v3",
+       "standard_dc2s",
+       "standard_dc2s_v2",
+       "standard_dc2s_v3",
+       "standard_dc4ads_v5",
+       "standard_dc4as_v5",
+       "standard_dc4ds_v3",
+       "standard_dc4s",
+       "standard_dc4s_v2",
+       "standard_dc4s_v3",
+       "standard_dc8_v2",
+       "standard_dc8ads_v5",
+       "standard_dc8as_v5",
+       "standard_dc8ds_v3",
+       "standard_dc8s_v3",
+       "standard_ds1",
+       "standard_ds1_v2",
+       "standard_ds2",
+       "standard_ds2_v2",
+       "standard_ds2_v2_promo",
+       "standard_ds3",
+       "standard_ds3_v2",
+       "standard_ds3_v2_promo",
+       "standard_ds4",
+       "standard_ds4_v2",
+       "standard_ds4_v2_promo",
+       "standard_ds5_v2",
+       "standard_ds5_v2_promo",
+       "standard_f1",
+       "standard_f1s",
+       "standard_f2",
+       "standard_f2s",
+       "standard_f2s_v2",
+       "standard_f4",
+       "standard_f4s",
+       "standard_f4s_v2",
+       "standard_f8",
+       "standard_f8s",
+       "standard_f8s_v2",
+       "standard_fx4mds",
+       "standard_d2_v3",
+       "standard_d2_v4",
+       "standard_d2_v5",
+       "standard_d2a_v4",
+       "standard_d2ads_v5",
+       "standard_d2as_v4",
+       "standard_d2as_v5",
+       "standard_d2d_v4",
+       "standard_d2d_v5",
+       "standard_d2ds_v4",
+       "standard_d2ds_v5",
+       "standard_d2s_v3",
+       "standard_d2s_v4",
+       "standard_d2s_v5",
+       "standard_nd24rs"
+      ]
+     }
+    },
+    "groupNames": [
+     "compute"
+    ]
+   }
+  ],
+  "policyDefinitionGroups": [
+   {
+    "name": "naming convention"
+   },
+   {
+    "name": "tag convention"
+   },
+   {
+    "name": "location convention"
+   },
+   {
+    "name": "compute"
+   }
+  ]
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policySetDefinitions/a502fec59bf54a5383c5db52",
+ "type": "Microsoft.Authorization/policySetDefinitions",
+ "name": "a502fec59bf54a5383c5db52"
+}
