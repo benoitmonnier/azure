@@ -21,7 +21,14 @@
    "createdBy": "608e2b42-4118-403f-ae54-b3675ac21ad6",
    "createdOn": "2021-12-03T15:26:22.5946661Z",
    "updatedBy": "bc3eef1d-2da7-49a6-9774-e6cb8468c16a",
-   "updatedOn": "2022-02-23T16:25:08.3100753Z"
+   "updatedOn": "2022-03-09T09:04:28.6661539Z",
+   "gitHubPolicy": {
+    "digest": "1ae52fa263eb32961852763ca661f07c073e3f9d",
+    "repoName": "benoitmonnier/azure",
+    "commitSha": "7c9277a4bb66e9e2bae66a02ba58d4c22a2d85c5",
+    "runUrl": "https://github.com/benoitmonnier/azure/actions/runs/1945876712",
+    "filepath": "initiatives/_CD_Global_Policy_a502fec59bf54a5383c5db52/assign._CD_Global_Policy_33b49cead3e7427c86b9f83c.json"
+   }
   },
   "enforcementMode": "Default"
  },
