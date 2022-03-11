@@ -1,0 +1,50 @@
+{
+ "properties": {
+  "displayName": "[CD] Public network access should be disabled for Container registries",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "Disabling public network access improves security by ensuring that container registries are not exposed on the public internet. Creating private endpoints can limit exposure of container registry resources. Learn more at: https://aka.ms/acr/portal/public-network and https://aka.ms/acr/private-link.",
+  "metadata": {
+   "category": "Container Registry",
+   "createdBy": "bc3eef1d-2da7-49a6-9774-e6cb8468c16a",
+   "createdOn": "2022-03-11T10:22:25.1580327Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "Audit",
+     "Deny",
+     "Disabled"
+    ],
+    "defaultValue": "Deny"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.ContainerRegistry/registries"
+     },
+     {
+      "field": "Microsoft.ContainerRegistry/registries/publicNetworkAccess",
+      "notEquals": "Disabled"
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/13ef0bc7-762a-4e76-816f-893c07b6d74a",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "13ef0bc7-762a-4e76-816f-893c07b6d74a"
+}

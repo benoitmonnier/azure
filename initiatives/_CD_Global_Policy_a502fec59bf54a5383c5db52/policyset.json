@@ -1,0 +1,624 @@
+{
+ "properties": {
+  "displayName": "[CD] Global Policy",
+  "policyType": "Custom",
+  "description": "",
+  "metadata": {
+   "category": "General",
+   "createdBy": "608e2b42-4118-403f-ae54-b3675ac21ad6",
+   "createdOn": "2021-11-29T16:17:30.4828585Z",
+   "updatedBy": "bc3eef1d-2da7-49a6-9774-e6cb8468c16a",
+   "updatedOn": "2022-03-11T14:08:28.7689298Z",
+   "parameterScopes": {
+    "listOfAllowedLocations": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525",
+    "listOfAllowedSKUs": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525"
+   },
+   "gitHubPolicy": {
+    "digest": "77399bf5760c2cee5f363a823bd0f189ef770790",
+    "repoName": "benoitmonnier/azure",
+    "commitSha": "2478170c5c3c40fe1dc1f2ead98ec9e1d7ee5cf1",
+    "runUrl": "https://github.com/benoitmonnier/azure/actions/runs/1945944946",
+    "filepath": "initiatives/_CD_Global_Policy_a502fec59bf54a5383c5db52"
+   }
+  },
+  "parameters": {},
+  "policyDefinitions": [
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cd3aa116-8754-49c9-a813-ad46512ece54",
+    "parameters": {
+     "tagName": {
+      "value": "Team"
+     }
+    },
+    "groupNames": [
+     "tag convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group_2",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cd3aa116-8754-49c9-a813-ad46512ece54",
+    "parameters": {
+     "tagName": {
+      "value": "Owner"
+     }
+    },
+    "groupNames": [
+     "tag convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group_3",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cd3aa116-8754-49c9-a813-ad46512ece54",
+    "parameters": {
+     "tagName": {
+      "value": "Project"
+     }
+    },
+    "groupNames": [
+     "tag convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group_4",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cd3aa116-8754-49c9-a813-ad46512ece54",
+    "parameters": {
+     "tagName": {
+      "value": "Environment"
+     }
+    },
+    "groupNames": [
+     "tag convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group_5",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cd3aa116-8754-49c9-a813-ad46512ece54",
+    "parameters": {
+     "tagName": {
+      "value": "CostCenter"
+     }
+    },
+    "groupNames": [
+     "tag convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group_6",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cd3aa116-8754-49c9-a813-ad46512ece54",
+    "parameters": {
+     "tagName": {
+      "value": "Expiration"
+     }
+    },
+    "groupNames": [
+     "tag convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Inherit a tag from the resource group_7",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cd3aa116-8754-49c9-a813-ad46512ece54",
+    "parameters": {
+     "tagName": {
+      "value": "IsLocked"
+     }
+    },
+    "groupNames": [
+     "tag convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Inherit a tag from the subscription on all_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/74c0c54f-221c-4515-9e6a-d4a15b684c50",
+    "parameters": {
+     "tagName": {
+      "value": "Entity"
+     }
+    },
+    "groupNames": [
+     "tag convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Resource Group Name ends with -rg_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/5dfd16ff-3e06-4ea6-bc0e-bdb84207cc77",
+    "parameters": {},
+    "groupNames": [
+     "naming convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Resource name has the same prefix as its resource group_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/8e16c3ee-28a2-490f-a8f0-a619439bc8c3",
+    "parameters": {},
+    "groupNames": [
+     "naming convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Audit and deploy Resource Locks based on Tags_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/d9c14ff3-63dd-4f7a-82e1-3c86b95edc35",
+    "parameters": {
+     "tagName": {
+      "value": "IsLocked"
+     },
+     "tagValue": {
+      "value": "True"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Allowed locations_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+    "parameters": {
+     "listOfAllowedLocations": {
+      "value": [
+       "francecentral",
+       "westeurope"
+      ]
+     }
+    },
+    "groupNames": [
+     "location convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Allowed locations for resource groups_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+    "parameters": {
+     "listOfAllowedLocations": {
+      "value": [
+       "francecentral",
+       "westeurope"
+      ]
+     }
+    },
+    "groupNames": [
+     "location convention"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Allowed virtual machine size SKUs_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cccc23c7-8427-4f53-ad12-b6a63eb452b3",
+    "parameters": {
+     "listOfAllowedSKUs": {
+      "value": [
+       "standard_a1_v2",
+       "standard_a2_v2",
+       "standard_a4_v2",
+       "standard_a2m_v2",
+       "standard_a4m_v2",
+       "standard_a8_v2",
+       "standard_a8m_v2",
+       "standard_b1ls",
+       "standard_b1ms",
+       "standard_b1s",
+       "standard_b2ms",
+       "standard_b2s",
+       "standard_b4ms",
+       "standard_b8ms",
+       "standard_d1_v2",
+       "standard_d2_v2",
+       "standard_d2_v2_promo",
+       "standard_d3_v2",
+       "standard_d3_v2_promo",
+       "standard_d4_v2",
+       "standard_d4_v2_promo",
+       "standard_d4_v3",
+       "standard_d4_v4",
+       "standard_d4_v5",
+       "standard_d5_v2",
+       "standard_d5_v2_promo",
+       "standard_d8_v3",
+       "standard_d8_v4",
+       "standard_d8_v5",
+       "standard_d8a_v4",
+       "standard_d8ads_v5",
+       "standard_d8as_v4",
+       "standard_d8as_v5",
+       "standard_d8d_v4",
+       "standard_d8d_v5",
+       "standard_d8ds_v4",
+       "standard_d8ds_v5",
+       "standard_d8s_v3",
+       "standard_d8s_v4",
+       "standard_d8s_v5",
+       "standard_dc1ds_v3",
+       "standard_dc1s_v2",
+       "standard_dc1s_v3",
+       "standard_dc2ads_v5",
+       "standard_dc2as_v5",
+       "standard_dc2ds_v3",
+       "standard_dc2s",
+       "standard_dc2s_v2",
+       "standard_dc2s_v3",
+       "standard_dc4ads_v5",
+       "standard_dc4as_v5",
+       "standard_dc4ds_v3",
+       "standard_dc4s",
+       "standard_dc4s_v2",
+       "standard_dc4s_v3",
+       "standard_dc8_v2",
+       "standard_dc8ads_v5",
+       "standard_dc8as_v5",
+       "standard_dc8ds_v3",
+       "standard_dc8s_v3",
+       "standard_ds1_v2",
+       "standard_ds2_v2",
+       "standard_ds2_v2_promo",
+       "standard_ds3_v2",
+       "standard_ds3_v2_promo",
+       "standard_ds4_v2",
+       "standard_ds4_v2_promo",
+       "standard_ds5_v2",
+       "standard_ds5_v2_promo",
+       "standard_f1",
+       "standard_f1s",
+       "standard_f2",
+       "standard_f2s",
+       "standard_f2s_v2",
+       "standard_f4",
+       "standard_f4s",
+       "standard_f4s_v2",
+       "standard_f8",
+       "standard_f8s",
+       "standard_f8s_v2",
+       "standard_fx4mds",
+       "standard_d2_v3",
+       "standard_d2_v4",
+       "standard_d2_v5",
+       "standard_d2a_v4",
+       "standard_d2ads_v5",
+       "standard_d2as_v4",
+       "standard_d2as_v5",
+       "standard_d2d_v4",
+       "standard_d2d_v5",
+       "standard_d2ds_v4",
+       "standard_d2ds_v5",
+       "standard_d2s_v3",
+       "standard_d2s_v4",
+       "standard_d2s_v5",
+       "standard_d4a_v4",
+       "standard_d4ads_v5",
+       "standard_d4as_v4",
+       "standard_d4as_v5",
+       "standard_d4d_v4",
+       "standard_d4d_v5",
+       "standard_d4ds_v4",
+       "standard_d4ds_v5",
+       "standard_d4s_v3",
+       "standard_d4s_v4",
+       "standard_d4s_v5"
+      ]
+     }
+    },
+    "groupNames": [
+     "compute"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Public network access should be disabled for Batch accounts_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/13ef0bc7-762a-4e76-816f-893c07b6d739",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Public network access should be disabled for Container registries_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/13ef0bc7-762a-4e76-816f-893c07b6d74a",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Public network access should be disabled for MariaDB servers_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/13ef0bc7-762a-4e76-816f-893c07b6d75b",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Public network access should be disabled for MySQL flexible servers_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/13ef0bc7-762a-4e76-816f-893c07b6d76c",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Public network access should be disabled for MySQL servers_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/13ef0bc7-762a-4e76-816f-893c07b6d77d",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD]Public network access should be disabled for PostgreSQL flexible servers_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/13ef0bc7-762a-4e76-816f-893c07b6d78e",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD]Public network access should be disabled for PostgreSQL servers_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/13ef0bc7-762a-4e76-816f-893c07b6d79f",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Web Application should only be accessible over HTTPS_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/13ef0bc7-762a-4e76-816f-893c07b6d7b0",
+    "parameters": {},
+    "groupNames": [
+     "https restriction"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] [Preview]: Azure Key Vault Managed HSM should disable public network access_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/13ef0bc7-762a-4e76-816f-893c07b6d7c1",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] [Preview]: Azure Key Vault should disable public network access_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/13ef0bc7-762a-4e76-816f-893c07b6d7d2",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] App Configuration should disable public network access_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/253d3227-8c34-4103-94c6-0ff97ccac464",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Application Insights components should block log ingestion and querying from public networks_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/253d3227-8c34-4103-94c6-0ff97ccac475",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Automation accounts should disable public network access_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/253d3227-8c34-4103-94c6-0ff97ccac486",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Azure Arc Private Link Scopes should disable public network access_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/253d3227-8c34-4103-94c6-0ff97ccac497",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Azure Cache for Redis should disable public network access_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/253d3227-8c34-4103-94c6-0ff97ccac4a8",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Azure Cognitive Search services should disable public network access_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/253d3227-8c34-4103-94c6-0ff97ccac4b9",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Azure Cosmos DB should disable public network access_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/253d3227-8c34-4103-94c6-0ff97ccac4ca",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Azure Event Grid domains should disable public network access_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/253d3227-8c34-4103-94c6-0ff97ccac4db",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Azure Event Grid topics should disable public network access_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/253d3227-8c34-4103-94c6-0ff97ccac4ec",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Azure Machine Learning workspaces should disable public network access_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/253d3227-8c34-4103-94c6-0ff97ccac4fd",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Azure Media Services accounts should disable public network access_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/253d3227-8c34-4103-94c6-0ff97ccac50e",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Azure SignalR Service should disable public network access_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/253d3227-8c34-4103-94c6-0ff97ccac51f",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Azure Synapse workspaces should disable public network access_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/253d3227-8c34-4103-94c6-0ff97ccac530",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Azure Web PubSub Service should disable public network access_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/253d3227-8c34-4103-94c6-0ff97ccac541",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Function App should only be accessible over HTTPS_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/253d3227-8c34-4103-94c6-0ff97ccac552",
+    "parameters": {},
+    "groupNames": [
+     "https restriction"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] IoT Hub device provisioning service instances should disable public network access_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/253d3227-8c34-4103-94c6-0ff97ccac563",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Log Analytics workspaces should block log ingestion and querying from public networks_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/253d3227-8c34-4103-94c6-0ff97ccac576",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Public network access on Azure Data Factory should be disabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/38e2eee8-4c64-42c2-b72a-a85e923de636",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Public network access on Azure IoT Hub should be disabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/38e2eee8-4c64-42c2-b72a-a85e923de647",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Public network access on Azure SQL Database should be disabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/38e2eee8-4c64-42c2-b72a-a85e923de658",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Public network access should be disabled for Azure File Sync_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/38e2eee8-4c64-42c2-b72a-a85e923de669",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] API App should only be accessible over HTTPS_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/8e6d44c8-68e7-4d81-ab42-fed6036ca3a5",
+    "parameters": {},
+    "groupNames": [
+     "https restriction"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] Cognitive Services accounts should disable public network access_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/a1ef77ce-ba42-4ffd-9aff-1b8efb66d449",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] FTPS only should be required in your Function App_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/3efedbe6-af0b-4d60-b77a-c0f2fc4051d7",
+    "parameters": {},
+    "groupNames": [
+     "ftps restriction"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] FTPS only should be required in your API App_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/3efedbe6-af0b-4d60-b77a-c0f2fc405203",
+    "parameters": {},
+    "groupNames": [
+     "ftps restriction"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] App Services should disable public network access_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/3efedbe6-af0b-4d60-b77a-c0f2fc4051e7",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "[CD] API Management services should disable public network access_1",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/3efedbe6-af0b-4d60-b77a-c0f2fc4051f5",
+    "parameters": {},
+    "groupNames": [
+     "public access"
+    ]
+   }
+  ],
+  "policyDefinitionGroups": [
+   {
+    "name": "naming convention"
+   },
+   {
+    "name": "tag convention"
+   },
+   {
+    "name": "location convention"
+   },
+   {
+    "name": "compute"
+   },
+   {
+    "name": "public access"
+   },
+   {
+    "name": "https restriction"
+   },
+   {
+    "name": "ftps restriction"
+   }
+  ]
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policySetDefinitions/a502fec59bf54a5383c5db52",
+ "type": "Microsoft.Authorization/policySetDefinitions",
+ "name": "a502fec59bf54a5383c5db52"
+}

@@ -1,0 +1,50 @@
+{
+ "properties": {
+  "displayName": "[CD] Public network access on Azure Data Factory should be disabled",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "Disabling the public network access property improves security by ensuring your Azure Data Factory can only be accessed from a private endpoint.",
+  "metadata": {
+   "category": "Data Factory",
+   "createdBy": "bc3eef1d-2da7-49a6-9774-e6cb8468c16a",
+   "createdOn": "2022-03-11T10:15:35.3444064Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "Audit",
+     "Deny",
+     "Disabled"
+    ],
+    "defaultValue": "Deny"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.DataFactory/factories"
+     },
+     {
+      "field": "Microsoft.DataFactory/factories/publicNetworkAccess",
+      "notEquals": "Disabled"
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/38e2eee8-4c64-42c2-b72a-a85e923de636",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "38e2eee8-4c64-42c2-b72a-a85e923de636"
+}

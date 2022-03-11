@@ -1,0 +1,53 @@
+{
+ "properties": {
+  "displayName": "[CD] Function App should only be accessible over HTTPS",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks.",
+  "metadata": {
+   "category": "App Service",
+   "createdBy": "bc3eef1d-2da7-49a6-9774-e6cb8468c16a",
+   "createdOn": "2022-03-10T14:36:58.5065447Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "Deny",
+     "Disabled"
+    ],
+    "defaultValue": "Deny"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Web/sites"
+     },
+     {
+      "field": "kind",
+      "like": "functionapp*"
+     },
+     {
+      "field": "Microsoft.Web/sites/httpsOnly",
+      "equals": "false"
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/253d3227-8c34-4103-94c6-0ff97ccac552",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "253d3227-8c34-4103-94c6-0ff97ccac552"
+}

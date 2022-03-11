@@ -1,0 +1,35 @@
+{
+ "properties": {
+  "displayName": "[CD] Resource Group Name ends with -rg",
+  "policyType": "Custom",
+  "mode": "All",
+  "metadata": {
+   "category": "General",
+   "createdBy": "608e2b42-4118-403f-ae54-b3675ac21ad6",
+   "createdOn": "2021-12-03T13:37:40.807239Z",
+   "updatedBy": "bc3eef1d-2da7-49a6-9774-e6cb8468c16a",
+   "updatedOn": "2022-02-21T16:55:44.982438Z"
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+     },
+     {
+      "field": "name",
+      "notLike": "*-rg"
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/5dfd16ff-3e06-4ea6-bc0e-bdb84207cc77",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "5dfd16ff-3e06-4ea6-bc0e-bdb84207cc77"
+}

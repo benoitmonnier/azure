@@ -1,0 +1,27 @@
+{
+ "properties": {
+  "displayName": "[CD] Resource name has the same prefix as its resource group",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "metadata": {
+   "category": "General",
+   "createdBy": "608e2b42-4118-403f-ae54-b3675ac21ad6",
+   "createdOn": "2021-12-03T13:42:58.0190866Z",
+   "updatedBy": "608e2b42-4118-403f-ae54-b3675ac21ad6",
+   "updatedOn": "2021-12-03T14:42:34.8329357Z"
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "field": "name",
+    "notLike": "[concat(split(resourceGroup().name,'-')[0],'*')]"
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/8e16c3ee-28a2-490f-a8f0-a619439bc8c3",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "8e16c3ee-28a2-490f-a8f0-a619439bc8c3"
+}

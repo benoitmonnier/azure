@@ -1,0 +1,58 @@
+{
+ "properties": {
+  "displayName": "[CD] Application Insights components should block log ingestion and querying from public networks",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "Improve Application Insights security by blocking log ingestion and querying from public networks. Only private-link connected networks will be able to ingest and query logs of this component. Learn more at https://aka.ms/AzMonPrivateLink#configure-application-insights.",
+  "metadata": {
+   "category": "Monitoring",
+   "createdBy": "bc3eef1d-2da7-49a6-9774-e6cb8468c16a",
+   "createdOn": "2022-03-10T14:27:45.3783226Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "The effect determines what happens when the policy rule is evaluated to match"
+    },
+    "allowedValues": [
+     "audit",
+     "deny",
+     "disabled"
+    ],
+    "defaultValue": "deny"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Insights/components"
+     },
+     {
+      "anyOf": [
+       {
+        "field": "Microsoft.Insights/components/publicNetworkAccessForIngestion",
+        "notEquals": "disabled"
+       },
+       {
+        "field": "Microsoft.Insights/components/publicNetworkAccessForQuery",
+        "notEquals": "disabled"
+       }
+      ]
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/253d3227-8c34-4103-94c6-0ff97ccac475",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "253d3227-8c34-4103-94c6-0ff97ccac475"
+}

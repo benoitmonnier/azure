@@ -1,0 +1,76 @@
+{
+ "properties": {
+  "displayName": "[CD] Audit and deploy Resource Locks based on Tags",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "metadata": {
+   "createdBy": "608e2b42-4118-403f-ae54-b3675ac21ad6",
+   "createdOn": "2021-12-03T09:49:57.0149256Z",
+   "updatedBy": "608e2b42-4118-403f-ae54-b3675ac21ad6",
+   "updatedOn": "2021-12-03T09:50:48.0826482Z",
+   "category": "General"
+  },
+  "parameters": {
+   "tagName": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name",
+     "description": "The Tag namne to audit against (i.e. Environment, CostCenter, etc.)"
+    }
+   },
+   "tagValue": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Value",
+     "description": "Value of the tag to audit against (i.e. Prod/UAT/TEST, 12345, etc.)"
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "[concat('tags[', parameters('tagName'), ']')]",
+      "equals": "[parameters('tagValue')]"
+     }
+    ]
+   },
+   "then": {
+    "effect": "deployIfNotExists",
+    "details": {
+     "type": "Microsoft.Authorization/locks",
+     "existenceCondition": {
+      "field": "Microsoft.Authorization/locks/level",
+      "equals": "CanNotDelete"
+     },
+     "roleDefinitionIds": [
+      "/providers/Microsoft.Authorization/roleDefinitions/8e3af657-a8ff-443c-a75c-2fe8c4bcb635"
+     ],
+     "deployment": {
+      "properties": {
+       "mode": "incremental",
+       "template": {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+        "contentVersion": "1.0.0.0",
+        "resources": [
+         {
+          "type": "Microsoft.Authorization/locks",
+          "apiVersion": "2017-04-01",
+          "name": "ResourceLock",
+          "properties": {
+           "level": "CanNotDelete",
+           "notes": "Prevent deletion of the resource group"
+          }
+         }
+        ]
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/d9c14ff3-63dd-4f7a-82e1-3c86b95edc35",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "d9c14ff3-63dd-4f7a-82e1-3c86b95edc35"
+}

@@ -1,0 +1,49 @@
+{
+ "properties": {
+  "displayName": "[CD]Public network access should be disabled for PostgreSQL servers",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "Disable the public network access property to improve security and ensure your Azure Database for PostgreSQL can only be accessed from a private endpoint. This configuration disables access from any public address space outside of Azure IP range, and denies all logins that match IP or virtual network-based firewall rules.",
+  "metadata": {
+   "category": "SQL",
+   "createdBy": "bc3eef1d-2da7-49a6-9774-e6cb8468c16a",
+   "createdOn": "2022-03-11T10:25:41.0483356Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "Audit",
+     "Deny"
+    ],
+    "defaultValue": "Deny"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.DBforPostgreSQL/servers"
+     },
+     {
+      "field": "Microsoft.DBforPostgreSQL/servers/publicNetworkAccess",
+      "notEquals": "Disabled"
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/13ef0bc7-762a-4e76-816f-893c07b6d79f",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "13ef0bc7-762a-4e76-816f-893c07b6d79f"
+}

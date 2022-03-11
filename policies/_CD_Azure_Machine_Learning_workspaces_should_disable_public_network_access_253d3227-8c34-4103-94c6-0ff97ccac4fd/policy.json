@@ -1,0 +1,54 @@
+{
+ "properties": {
+  "displayName": "[CD] Azure Machine Learning workspaces should disable public network access",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "Disabling public network access improves security by ensuring that the machine learning workspaces aren't exposed on the public internet. You can limit exposure of your workspaces by creating private endpoints instead. Learn more at: https://aka.ms/privateendpoints.",
+  "metadata": {
+   "category": "Machine Learning",
+   "createdBy": "bc3eef1d-2da7-49a6-9774-e6cb8468c16a",
+   "createdOn": "2022-03-10T14:33:09.0941272Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "Audit",
+     "Deny",
+     "Disabled"
+    ],
+    "defaultValue": "Deny"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.MachineLearningServices/workspaces"
+     },
+     {
+      "field": "Microsoft.MachineLearningServices/workspaces/publicNetworkAccess",
+      "exists": "true"
+     },
+     {
+      "field": "Microsoft.MachineLearningServices/workspaces/publicNetworkAccess",
+      "notEquals": "Disabled"
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/253d3227-8c34-4103-94c6-0ff97ccac4fd",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "253d3227-8c34-4103-94c6-0ff97ccac4fd"
+}

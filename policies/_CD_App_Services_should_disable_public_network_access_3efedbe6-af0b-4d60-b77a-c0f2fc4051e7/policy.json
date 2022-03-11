@@ -1,0 +1,49 @@
+{
+ "properties": {
+  "displayName": "[CD] App Services should disable public network access",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "Disabling public network access improves security by ensuring that the App Service is not exposed on the public internet. Creating private endpoints can limit exposure of an App Service. Learn more at: https://aka.ms/app-service-private-endpoint.",
+  "metadata": {
+   "category": "App Service",
+   "createdBy": "bc3eef1d-2da7-49a6-9774-e6cb8468c16a",
+   "createdOn": "2022-03-11T13:52:05.492023Z",
+   "updatedBy": "bc3eef1d-2da7-49a6-9774-e6cb8468c16a",
+   "updatedOn": "2022-03-11T14:06:03.1550634Z"
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "Deny",
+     "Disabled"
+    ],
+    "defaultValue": "Deny"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "field": "type",
+    "equals": "Microsoft.Web/sites"
+   },
+   "then": {
+    "effect": "[parameters('effect')]",
+    "details": {
+     "type": "Microsoft.Web/sites/config",
+     "name": "web",
+     "existenceCondition": {
+      "field": "Microsoft.Web/sites/config/publicNetworkAccess",
+      "equals": "Disabled"
+     }
+    }
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/3efedbe6-af0b-4d60-b77a-c0f2fc4051e7",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "3efedbe6-af0b-4d60-b77a-c0f2fc4051e7"
+}

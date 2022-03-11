@@ -1,0 +1,64 @@
+{
+ "properties": {
+  "displayName": "[CD] Azure SignalR Service should disable public network access",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "To improve the security of Azure SignalR Service resource, ensure that it isn't exposed to the public internet and can only be accessed from a private endpoint. Disable the public network access property as described in https://aka.ms/asrs/networkacls. This option disables access from any public address space outside the Azure IP range, and denies all logins that match IP or virtual network-based firewall rules. This reduces data leakage risks.",
+  "metadata": {
+   "category": "SignalR",
+   "createdBy": "bc3eef1d-2da7-49a6-9774-e6cb8468c16a",
+   "createdOn": "2022-03-10T14:34:49.7265803Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "Audit",
+     "Deny",
+     "Disabled"
+    ],
+    "defaultValue": "Deny"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.SignalRService/SignalR"
+     },
+     {
+      "anyOf": [
+       {
+        "field": "Microsoft.SignalRService/SignalR/networkACLs.defaultAction",
+        "equals": "Allow"
+       },
+       {
+        "field": "Microsoft.SignalRService/SignalR/networkACLs.publicNetwork.allow",
+        "exists": false
+       },
+       {
+        "count": {
+         "field": "Microsoft.SignalRService/SignalR/networkACLs.publicNetwork.allow[*]"
+        },
+        "greater": 0
+       }
+      ]
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/253d3227-8c34-4103-94c6-0ff97ccac51f",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "253d3227-8c34-4103-94c6-0ff97ccac51f"
+}

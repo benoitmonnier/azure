@@ -1,0 +1,50 @@
+{
+ "properties": {
+  "displayName": "[CD] Azure Media Services accounts should disable public network access",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "Disabling public network access improves security by ensuring that Media Services resources are not exposed on the public internet. Creating private endpoints can limit exposure of Media Services resources. Learn more at: https://aka.ms/mediaservicesprivatelinkdocs.",
+  "metadata": {
+   "category": "Media Services",
+   "createdBy": "bc3eef1d-2da7-49a6-9774-e6cb8468c16a",
+   "createdOn": "2022-03-10T14:33:40.113213Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "Audit",
+     "Deny",
+     "Disabled"
+    ],
+    "defaultValue": "Deny"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Media/mediaservices"
+     },
+     {
+      "field": "Microsoft.Media/mediaservices/publicNetworkAccess",
+      "notEquals": "Disabled"
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/253d3227-8c34-4103-94c6-0ff97ccac50e",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "253d3227-8c34-4103-94c6-0ff97ccac50e"
+}

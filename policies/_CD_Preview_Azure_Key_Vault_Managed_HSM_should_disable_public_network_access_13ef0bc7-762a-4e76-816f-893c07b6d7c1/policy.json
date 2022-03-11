@@ -1,0 +1,54 @@
+{
+ "properties": {
+  "displayName": "[CD] [Preview]: Azure Key Vault Managed HSM should disable public network access",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "Disable public network access for your Azure Key Vault Managed HSM so that it's not accessible over the public internet. This can reduce data leakage risks. Learn more at: https://docs.microsoft.com/azure/key-vault/managed-hsm/private-link#allow-trusted-services-to-access-managed-hsm.",
+  "metadata": {
+   "category": "Key Vault",
+   "createdBy": "bc3eef1d-2da7-49a6-9774-e6cb8468c16a",
+   "createdOn": "2022-03-11T10:27:02.5564145Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "Audit",
+     "Deny",
+     "Disabled"
+    ],
+    "defaultValue": "Deny"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.KeyVault/managedHSMs"
+     },
+     {
+      "field": "Microsoft.KeyVault/managedHSMs/createMode",
+      "notEquals": "recover"
+     },
+     {
+      "field": "Microsoft.KeyVault/managedHSMs/networkAcls.defaultAction",
+      "notEquals": "Deny"
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/13ef0bc7-762a-4e76-816f-893c07b6d7c1",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "13ef0bc7-762a-4e76-816f-893c07b6d7c1"
+}

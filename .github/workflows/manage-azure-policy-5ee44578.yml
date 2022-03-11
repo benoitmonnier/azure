@@ -1,0 +1,114 @@
+name: manage-azure-policy-5ee44578
+on:
+  workflow_dispatch:
+    inputs:
+      remarks:
+        description: 'Reason for triggering the workflow run'
+        required: false
+        default: 'Updating Azure Policies'
+
+
+## Uncomment the following if you wish to automatically trigger workflow run with every commit
+#
+#  push:
+#    paths:
+#      - 'initiatives/_CD_Global_Policy_a502fec59bf54a5383c5db52/**'
+#      - 'policies/_CD_Public_network_access_should_be_disabled_for_Batch_accounts_13ef0bc7-762a-4e76-816f-893c07b6d739/**'
+#      - 'policies/_CD_Public_network_access_should_be_disabled_for_Container_registries_13ef0bc7-762a-4e76-816f-893c07b6d74a/**'
+#      - 'policies/_CD_Public_network_access_should_be_disabled_for_MariaDB_servers_13ef0bc7-762a-4e76-816f-893c07b6d75b/**'
+#      - 'policies/_CD_Public_network_access_should_be_disabled_for_MySQL_flexible_servers_13ef0bc7-762a-4e76-816f-893c07b6d76c/**'
+#      - 'policies/_CD_Public_network_access_should_be_disabled_for_MySQL_servers_13ef0bc7-762a-4e76-816f-893c07b6d77d/**'
+#      - 'policies/_CD_Public_network_access_should_be_disabled_for_PostgreSQL_flexible_servers_13ef0bc7-762a-4e76-816f-893c07b6d78e/**'
+#      - 'policies/_CD_Public_network_access_should_be_disabled_for_PostgreSQL_servers_13ef0bc7-762a-4e76-816f-893c07b6d79f/**'
+#      - 'policies/_CD_Web_Application_should_only_be_accessible_over_HTTPS_13ef0bc7-762a-4e76-816f-893c07b6d7b0/**'
+#      - 'policies/_CD_Preview_Azure_Key_Vault_Managed_HSM_should_disable_public_network_access_13ef0bc7-762a-4e76-816f-893c07b6d7c1/**'
+#      - 'policies/_CD_Preview_Azure_Key_Vault_should_disable_public_network_access_13ef0bc7-762a-4e76-816f-893c07b6d7d2/**'
+#      - 'policies/_CD_App_Configuration_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac464/**'
+#      - 'policies/_CD_Application_Insights_components_should_block_log_ingestion_and_querying_from_public_networks_253d3227-8c34-4103-94c6-0ff97ccac475/**'
+#      - 'policies/_CD_Automation_accounts_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac486/**'
+#      - 'policies/_CD_Azure_Arc_Private_Link_Scopes_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac497/**'
+#      - 'policies/_CD_Azure_Cache_for_Redis_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac4a8/**'
+#      - 'policies/_CD_Azure_Cognitive_Search_services_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac4b9/**'
+#      - 'policies/_CD_Azure_Cosmos_DB_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac4ca/**'
+#      - 'policies/_CD_Azure_Event_Grid_domains_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac4db/**'
+#      - 'policies/_CD_Azure_Event_Grid_topics_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac4ec/**'
+#      - 'policies/_CD_Azure_Machine_Learning_workspaces_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac4fd/**'
+#      - 'policies/_CD_Azure_Media_Services_accounts_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac50e/**'
+#      - 'policies/_CD_Azure_SignalR_Service_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac51f/**'
+#      - 'policies/_CD_Azure_Synapse_workspaces_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac530/**'
+#      - 'policies/_CD_Azure_Web_PubSub_Service_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac541/**'
+#      - 'policies/_CD_Function_App_should_only_be_accessible_over_HTTPS_253d3227-8c34-4103-94c6-0ff97ccac552/**'
+#      - 'policies/_CD_IoT_Hub_device_provisioning_service_instances_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac563/**'
+#      - 'policies/_CD_Log_Analytics_workspaces_should_block_log_ingestion_and_querying_from_public_networks_253d3227-8c34-4103-94c6-0ff97ccac576/**'
+#      - 'policies/_CD_Public_network_access_on_Azure_Data_Factory_should_be_disabled_38e2eee8-4c64-42c2-b72a-a85e923de636/**'
+#      - 'policies/_CD_Public_network_access_on_Azure_IoT_Hub_should_be_disabled_38e2eee8-4c64-42c2-b72a-a85e923de647/**'
+#      - 'policies/_CD_Public_network_access_on_Azure_SQL_Database_should_be_disabled_38e2eee8-4c64-42c2-b72a-a85e923de658/**'
+#      - 'policies/_CD_Public_network_access_should_be_disabled_for_Azure_File_Sync_38e2eee8-4c64-42c2-b72a-a85e923de669/**'
+#      - 'policies/_CD_FTPS_only_should_be_required_in_your_Function_App_3efedbe6-af0b-4d60-b77a-c0f2fc4051d7/**'
+#      - 'policies/_CD_App_Services_should_disable_public_network_access_3efedbe6-af0b-4d60-b77a-c0f2fc4051e7/**'
+#      - 'policies/_CD_API_Management_services_should_disable_public_network_access_3efedbe6-af0b-4d60-b77a-c0f2fc4051f5/**'
+#      - 'policies/_CD_FTPS_only_should_be_required_in_your_API_App_3efedbe6-af0b-4d60-b77a-c0f2fc405203/**'
+#      - 'policies/_CD_Resource_Group_Name_ends_with_-rg_5dfd16ff-3e06-4ea6-bc0e-bdb84207cc77/**'
+#      - 'policies/_CD_Inherit_a_tag_from_the_subscription_on_all_74c0c54f-221c-4515-9e6a-d4a15b684c50/**'
+#      - 'policies/_CD_Resource_name_has_the_same_prefix_as_its_resource_group_8e16c3ee-28a2-490f-a8f0-a619439bc8c3/**'
+#      - 'policies/_CD_API_App_should_only_be_accessible_over_HTTPS_8e6d44c8-68e7-4d81-ab42-fed6036ca3a5/**'
+#      - 'policies/_CD_Cognitive_Services_accounts_should_disable_public_network_access_a1ef77ce-ba42-4ffd-9aff-1b8efb66d449/**'
+#      - 'policies/_CD_Audit_and_deploy_Resource_Locks_based_on_Tags_d9c14ff3-63dd-4f7a-82e1-3c86b95edc35/**'
+#      - .github/workflows/manage-azure-policy-5ee44578.yml
+jobs:
+  apply-azure-policy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_5ee44578}}
+        allow-no-subscriptions: true
+    - name: Create or Update Azure Policies
+      uses: azure/manage-azure-policy@v0
+      with:
+        paths: |
+          initiatives/_CD_Global_Policy_a502fec59bf54a5383c5db52/**
+          policies/_CD_Public_network_access_should_be_disabled_for_Batch_accounts_13ef0bc7-762a-4e76-816f-893c07b6d739/**
+          policies/_CD_Public_network_access_should_be_disabled_for_Container_registries_13ef0bc7-762a-4e76-816f-893c07b6d74a/**
+          policies/_CD_Public_network_access_should_be_disabled_for_MariaDB_servers_13ef0bc7-762a-4e76-816f-893c07b6d75b/**
+          policies/_CD_Public_network_access_should_be_disabled_for_MySQL_flexible_servers_13ef0bc7-762a-4e76-816f-893c07b6d76c/**
+          policies/_CD_Public_network_access_should_be_disabled_for_MySQL_servers_13ef0bc7-762a-4e76-816f-893c07b6d77d/**
+          policies/_CD_Public_network_access_should_be_disabled_for_PostgreSQL_flexible_servers_13ef0bc7-762a-4e76-816f-893c07b6d78e/**
+          policies/_CD_Public_network_access_should_be_disabled_for_PostgreSQL_servers_13ef0bc7-762a-4e76-816f-893c07b6d79f/**
+          policies/_CD_Web_Application_should_only_be_accessible_over_HTTPS_13ef0bc7-762a-4e76-816f-893c07b6d7b0/**
+          policies/_CD_Preview_Azure_Key_Vault_Managed_HSM_should_disable_public_network_access_13ef0bc7-762a-4e76-816f-893c07b6d7c1/**
+          policies/_CD_Preview_Azure_Key_Vault_should_disable_public_network_access_13ef0bc7-762a-4e76-816f-893c07b6d7d2/**
+          policies/_CD_App_Configuration_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac464/**
+          policies/_CD_Application_Insights_components_should_block_log_ingestion_and_querying_from_public_networks_253d3227-8c34-4103-94c6-0ff97ccac475/**
+          policies/_CD_Automation_accounts_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac486/**
+          policies/_CD_Azure_Arc_Private_Link_Scopes_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac497/**
+          policies/_CD_Azure_Cache_for_Redis_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac4a8/**
+          policies/_CD_Azure_Cognitive_Search_services_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac4b9/**
+          policies/_CD_Azure_Cosmos_DB_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac4ca/**
+          policies/_CD_Azure_Event_Grid_domains_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac4db/**
+          policies/_CD_Azure_Event_Grid_topics_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac4ec/**
+          policies/_CD_Azure_Machine_Learning_workspaces_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac4fd/**
+          policies/_CD_Azure_Media_Services_accounts_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac50e/**
+          policies/_CD_Azure_SignalR_Service_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac51f/**
+          policies/_CD_Azure_Synapse_workspaces_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac530/**
+          policies/_CD_Azure_Web_PubSub_Service_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac541/**
+          policies/_CD_Function_App_should_only_be_accessible_over_HTTPS_253d3227-8c34-4103-94c6-0ff97ccac552/**
+          policies/_CD_IoT_Hub_device_provisioning_service_instances_should_disable_public_network_access_253d3227-8c34-4103-94c6-0ff97ccac563/**
+          policies/_CD_Log_Analytics_workspaces_should_block_log_ingestion_and_querying_from_public_networks_253d3227-8c34-4103-94c6-0ff97ccac576/**
+          policies/_CD_Public_network_access_on_Azure_Data_Factory_should_be_disabled_38e2eee8-4c64-42c2-b72a-a85e923de636/**
+          policies/_CD_Public_network_access_on_Azure_IoT_Hub_should_be_disabled_38e2eee8-4c64-42c2-b72a-a85e923de647/**
+          policies/_CD_Public_network_access_on_Azure_SQL_Database_should_be_disabled_38e2eee8-4c64-42c2-b72a-a85e923de658/**
+          policies/_CD_Public_network_access_should_be_disabled_for_Azure_File_Sync_38e2eee8-4c64-42c2-b72a-a85e923de669/**
+          policies/_CD_FTPS_only_should_be_required_in_your_Function_App_3efedbe6-af0b-4d60-b77a-c0f2fc4051d7/**
+          policies/_CD_App_Services_should_disable_public_network_access_3efedbe6-af0b-4d60-b77a-c0f2fc4051e7/**
+          policies/_CD_API_Management_services_should_disable_public_network_access_3efedbe6-af0b-4d60-b77a-c0f2fc4051f5/**
+          policies/_CD_FTPS_only_should_be_required_in_your_API_App_3efedbe6-af0b-4d60-b77a-c0f2fc405203/**
+          policies/_CD_Resource_Group_Name_ends_with_-rg_5dfd16ff-3e06-4ea6-bc0e-bdb84207cc77/**
+          policies/_CD_Inherit_a_tag_from_the_subscription_on_all_74c0c54f-221c-4515-9e6a-d4a15b684c50/**
+          policies/_CD_Resource_name_has_the_same_prefix_as_its_resource_group_8e16c3ee-28a2-490f-a8f0-a619439bc8c3/**
+          policies/_CD_API_App_should_only_be_accessible_over_HTTPS_8e6d44c8-68e7-4d81-ab42-fed6036ca3a5/**
+          policies/_CD_Cognitive_Services_accounts_should_disable_public_network_access_a1ef77ce-ba42-4ffd-9aff-1b8efb66d449/**
+          policies/_CD_Audit_and_deploy_Resource_Locks_based_on_Tags_d9c14ff3-63dd-4f7a-82e1-3c86b95edc35/**

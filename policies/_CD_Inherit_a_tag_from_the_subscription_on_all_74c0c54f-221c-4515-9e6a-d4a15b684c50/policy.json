@@ -1,0 +1,56 @@
+{
+ "properties": {
+  "displayName": "[CD] Inherit a tag from the subscription on all",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "Adds or replaces the specified tag and value from the containing subscription when any resource is created or updated. Existing resources can be remediated by triggering a remediation task.",
+  "metadata": {
+   "category": "Tags",
+   "createdBy": "608e2b42-4118-403f-ae54-b3675ac21ad6",
+   "createdOn": "2021-12-03T09:17:35.1308612Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "tagName": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name",
+     "description": "Name of the tag, such as 'environment'"
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "[concat('tags[', parameters('tagName'), ']')]",
+      "notEquals": "[subscription().tags[parameters('tagName')]]"
+     },
+     {
+      "value": "[subscription().tags[parameters('tagName')]]",
+      "notEquals": ""
+     }
+    ]
+   },
+   "then": {
+    "effect": "modify",
+    "details": {
+     "roleDefinitionIds": [
+      "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+     ],
+     "operations": [
+      {
+       "operation": "addOrReplace",
+       "field": "[concat('tags[', parameters('tagName'), ']')]",
+       "value": "[subscription().tags[parameters('tagName')]]"
+      }
+     ]
+    }
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/c074d47b-2c6f-47f8-8e91-836e4eb6d525/providers/Microsoft.Authorization/policyDefinitions/74c0c54f-221c-4515-9e6a-d4a15b684c50",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "74c0c54f-221c-4515-9e6a-d4a15b684c50"
+}
