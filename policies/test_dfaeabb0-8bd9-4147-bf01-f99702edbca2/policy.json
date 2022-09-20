@@ -1,0 +1,37 @@
+{
+ "properties": {
+  "displayName": "test",
+  "policyType": "Custom",
+  "mode": "All",
+  "metadata": {
+   "createdBy": "8e49aab4-ffa6-4006-b0b0-c948cc4ac899",
+   "createdOn": "2022-09-20T09:34:23.091649Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "allowedLocations": {
+    "type": "Array",
+    "metadata": {
+     "displayName": "Allowed locations",
+     "description": "The list of allowed locations for resources.",
+     "strongType": "location"
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "not": {
+     "field": "location",
+     "in": "[parameters('allowedLocations')]"
+    }
+   },
+   "then": {
+    "effect": "audit"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/63a4b70a-1d64-4fdb-bf96-02fcb38761bb/providers/Microsoft.Authorization/policyDefinitions/dfaeabb0-8bd9-4147-bf01-f99702edbca2",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "dfaeabb0-8bd9-4147-bf01-f99702edbca2"
+}
